@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    You are logged in! And kraken test is passed!
                 </div>
             </div>
         </div>

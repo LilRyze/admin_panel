@@ -4,7 +4,6 @@ namespace AdminPanel\Http\Controllers;
 
 use Illuminate\Http\Request;
 use AdminPanel\Destination;
-use Faker\Provider\Image;
 use Illuminate\Support\Facades\Input;
 
 class AdminController extends Controller
@@ -25,6 +24,7 @@ class AdminController extends Controller
 
 
     public function createDestination(Request $request) {
+        try {
             Destination::create([
                 'name' => $request->name,
                 'description' => $request->description,
@@ -34,7 +34,13 @@ class AdminController extends Controller
                 'ticket_included' => $request->ticket_included,
                 'guided_visits' => $request->guided_visits,
             ]);
-//            $request->image->store(storage_path());
+
+            Input::file('image')->storeAs('', strtolower($request->name) . '-' . 'destination');
+
+            return "Created <a href='/'>Go Home</a>";
+        }   catch (\Exception $e) {
+            return $e;
+        }
 
     }
 
@@ -53,7 +59,7 @@ class AdminController extends Controller
         } catch (\Exception $e) {
             echo $e;
         }
-        return 'correct';
+        return "Updated '<a href='/'>Home</a>'";
     }
 
     public function deleteDestination(Request $request) {
@@ -63,6 +69,6 @@ class AdminController extends Controller
         } catch (\Exception $e) {
             echo $e;
         }
-        return redirect('/');
+        return redirect('/read_destinations');
     }
 }

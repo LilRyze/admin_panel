@@ -25,6 +25,8 @@ Route::get('/create_destination', 'AdminController@showCreateDestination')->midd
 Route::get('/read_destinations', 'AdminController@showReadDestinations')->middleware('role:admin');
 Route::get('/update_destination/{id}', 'AdminController@showUpdateDestination')->middleware('role:admin');
 
+Route::get('/guzzle_test', 'GuzzleController@testing');
+
 Route::get('/delete_destination/{id}', 'AdminController@deleteDestination')->middleware('role:admin');
 Route::post('/create_destination', 'AdminController@createDestination')->middleware('role:admin');
 Route::post('/update_destination/{id}', 'AdminController@updateDestination')->middleware('role:admin');

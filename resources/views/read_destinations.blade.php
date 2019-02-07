@@ -8,7 +8,7 @@
             <tr>
                 <th width="3%">ID</th>
                 <th width="7%">Destination</th>
-                <th>Description</th>
+                <th>Description when im trying to  test git Kraken</th>
                 <th>Price</th>
                 <th>Hotel</th>
                 <th>Included</th>
@@ -40,10 +40,3 @@
         </table>
     </div>
 @endforeach
-<script>
-if ( data['success'] )
-{
-alert(data['success']);
-location.reload();
-}
-</script>
